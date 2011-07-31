@@ -1,0 +1,61 @@
+<? php
+
+// file: /app/views/formats/index.ctp
+
+?>
+
+<div class="formats index">
+
+	<h2>Formats Index</h2>
+	<p>Currently displaying all formats in the application.</p>
+
+	<?php
+	if(isset($formats) && !empty($formats)) :
+	?>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Slug</th>
+				<th>Description</th>
+				<th>Created</th>
+				<th>Modified</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php
+			$count = 0;
+			foreach($formats as $format) :
+				$class = ( ($count %2) ? " class='altrow'" : '');
+				$count++;
+			?>			
+			<tr<?php echo $class; ?>>
+				<td><?php echo $format['Format']['id']; ?></td>
+				<td><?php echo $format['Format']['name']; ?></td>
+				<td><?php echo $format['Format']['slug']; ?></td>
+				<td><?php echo $format['Format']['description']; ?></td>
+				<td><?php echo $format['Format']['created']; ?></td>
+				<td><?php echo $format['Format']['modified']; ?></td>
+				<td>
+					<?php echo $html->link('Edit', array('action'=>'admin_edit', $format['Format']['id']) );?>
+					<?php echo $html->link('Delete', array('action'=>'admin_delete', $format['Format']['id']), null, sprintf('Are you sure you want to delete Format: %s?', $format['Format']['name']) );?>
+				</td>
+			</tr>
+			<?php endforeach; ?>
+		</tbody>
+	</table>
+
+	<?php
+	else:
+		echo 'There are currently no Formats in the database.';
+	endif;
+	?>
+
+	<ul class = "actions">
+		<li><?php //echo $html->('Add a Format', array('action'=>'add')); ?></li>
+	</ul>
+
+</div>
