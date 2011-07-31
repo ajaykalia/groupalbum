@@ -1419,3 +1419,4 @@
 2011-07-29 17:47:29 Notice: Notice (8): Undefined variable: attendees in [/mnt/hgfs/vm/wedding_scratch/app/views/events/event_attendees.ctp, line 15]
 2011-07-29 17:47:30 Notice: Notice (8): Undefined variable: attendees in [/mnt/hgfs/vm/wedding_scratch/app/views/events/event_attendees.ctp, line 15]
 2011-07-29 17:47:31 Notice: Notice (8): Undefined variable: attendees in [/mnt/hgfs/vm/wedding_scratch/app/views/events/event_attendees.ctp, line 15]
+2011-07-30 17:51:58 Notice: Notice (1024): Please change the value of 'Security.cipherSeed' in app/config/core.php to a numeric (digits only) seed value specific to your application in [/mnt/hgfs/vm/groupAlbum/cake/libs/debugger.php, line 688]

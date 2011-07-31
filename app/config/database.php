@@ -79,7 +79,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => 'b@nz@!',
-		'database' => 'wedding',
+		'database' => 'event',
 		'prefix' => '',
 	);
 
