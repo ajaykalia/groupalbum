@@ -1,0 +1,11 @@
+###
+# Mac OS X directory preferences
+###
+.DS_Store
+###
+# CakePHP tmp content
+###
+*/tmp/cache/*
+*/tmp/logs/*
+*/tmp/sessions/*
+*/tmp/tests/*
