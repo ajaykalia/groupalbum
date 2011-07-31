@@ -3,12 +3,26 @@
 require 'facebook_sdk/src/facebook.php';
 
 // Create our Application instance (replace this with your appId and secret).
-$facebook = new Facebook(array(
-  'appId'  => '197989656904228',
-  'secret' => 'f54258a27f57c0062fa7368e2b696f31',
-  'cookie' => true,
-  'fileUpload' => true,
-));
+
+$environment = $_SERVER['HOSTNAME'] === 'domU-12-31-39-01-F2-E7' ? 'PRD' : 'DEV';
+
+if ($environment === 'PRD') {
+    $facebook = new Facebook(array(
+      'appId'  => '214126558638696',
+      'secret' => '18b50960a265f599101ad3c0b2fba04f',
+      'cookie' => true,
+      'fileUpload' => true,
+    ));
+}
+else {
+    // dev
+    $facebook = new Facebook(array(
+      'appId'  => '197989656904228',
+      'secret' => 'f54258a27f57c0062fa7368e2b696f31',
+      'cookie' => true,
+      'fileUpload' => true,
+    ));
+}
 
 $facebook->setFileUploadSupport(true); 
 
