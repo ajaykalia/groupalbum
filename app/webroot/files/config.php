@@ -4,7 +4,7 @@ require 'facebook_sdk/src/facebook.php';
 
 // Create our Application instance (replace this with your appId and secret).
 
-$environment = $_SERVER['HOSTNAME'] === 'domU-12-31-39-01-F2-E7' ? 'PRD' : 'DEV';
+$environment = $_SERVER['SERVER_NAME'] === 'ec2-184-73-59-185.compute-1.amazonaws.com' ? 'PRD' : 'DEV';
 
 if ($environment === 'PRD') {
     $facebook = new Facebook(array(
