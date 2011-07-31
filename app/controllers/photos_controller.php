@@ -183,13 +183,8 @@
 
 			// Create our Application instance (replace this with your appId and secret).
 		if(!(isset($session))) {
-		require_once $_SERVER['DOCUMENT_ROOT'].'files/facebook_sdk/src/facebook.php';
-			$facebook = new Facebook(array(
-			  'appId'  => '197989656904228',
-			  'secret' => 'f54258a27f57c0062fa7368e2b696f31',
-			  'cookie' => true,
-			  'fileUpload' => true,
-			)); }
+		require_once $_SERVER['DOCUMENT_ROOT'].'files/config.php';
+}
 
 			$session = $facebook->getSession();
 
