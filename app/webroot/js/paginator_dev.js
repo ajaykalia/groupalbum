@@ -50,7 +50,7 @@
 
 	var startPage = 1; // start page
 
-	var itemsPerPage = 21; // no. of items you want to show on one page
+	var itemsPerPage = 15; // no. of items you want to show on one page
 
 	var firstPageSymbol = ''; // to indicate First Page
 

@@ -15,9 +15,8 @@
 
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> 
-<script type="text/javascript" src="/js/gallery.js"></script>
 <script src="/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
-<script src="/js/paginator_dev.js"></script>
+<script src="/js/scroll.js"></script>
 
 <script type="text/javascript">
 window.fbAsyncInit = function() {
@@ -28,7 +27,7 @@ window.fbAsyncInit = function() {
 
 		$('#form_event_id').ready(function() { 
 			var event_id = document.getElementById('form_event_id').value;
-			$('#imageList').load("/photos/photo_gallery?event_id="+event_id);
+		//	$('#imageList').load("/photos/photo_gallery?event_id="+event_id);
 			$('#add_album_box').load('/events/add_album_box?event_id='+event_id);
 			$('.fb_login_button').css('visibility', 'hidden');
 			$('#fb_login_status').css('visibility', 'visible');
@@ -44,7 +43,7 @@ window.fbAsyncInit = function() {
 
 		$('#form_event_id').ready(function() { 
 			var event_id = document.getElementById('form_event_id').value;
-			$('#imageList').load("/photos/photo_gallery?event_id="+event_id);
+		//	$('#imageList').load("/photos/photo_gallery?event_id="+event_id);
 			$('#add_album_box').load('/events/add_album_box?event_id='+event_id);
 			$('.fb_login_button').css('visibility', 'visible');
 			$('#fb_login_status').css('visibility', 'hidden');
@@ -65,14 +64,16 @@ window.fbAsyncInit = function() {
 <!-- If you'd like some sort of menu to 
 show up on all of your views, include it here -->
 <div id="header">
-    <div id="menu"><h2><p>EventLayer demo</h2><p></div>
+	<img src="/img/Camera_2.png" />
 </div>
 
-<!-- 16 col 960gs start -->
-<div class="container_16">
-<!-- Here's where I want my views to be displayed -->
-<?php echo $content_for_layout ?>
-<!-- 16 col 960gs end -->
+<div id="main_content">
+	<!-- 16 col 960gs start -->
+	<div class="container_16">
+		<!-- Here's where I want my views to be displayed -->
+		<?php echo $content_for_layout ?>
+		<!-- 16 col 960gs end -->
+	</div>
 </div>
 
 <!-- Add a footer to each displayed page -->

@@ -23,24 +23,16 @@
 ?>
 
 
-
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function(){
-    $(function(){ $("#thumb_gallery").pagination(); });
-	$("a[rel^='prettyPhoto']").prettyPhoto();
-  });
-</script>
-
-
 <style>
 
 ul#thumb_gallery {
-	height:333px;
+	/*height:430px;*/
+	margin-bottom:0px;
 }
 
 
 ul#thumb_gallery a{
-		display:inline-block; 
+		
 		float: left;
 		width:92px;
 		height:92px;
@@ -71,14 +63,15 @@ ul#thumb_gallery a img{
 	}
 	
 ul#thumb_gallery li p{
-		display:inline-block; 
+		display: inline-block;
+		
+
 		float: left;
 		width:92px;
 		height:92px;
 		overflow:visible;
 		position:relative;
 		z-index:1;
-		
 		border-color: #999;
 		border-style: solid;
 		border-width: 2px;
@@ -111,28 +104,8 @@ ul#thumb_gallery a:hover{
 }	 	
 
 ul#thumb_gallery li{
-		display: inline-block; 
+	display: inline-block;
 }
-
-div.paginator {
-	margin-left:auto;
-	margin-right:auto;
-	text-align:center;
-}
-div.paginator.top a.active{
-	color: #FFF; /* same color as the surrounding text */
-  	text-decoration: none; /* to remove the underline */
-  	cursor: text;
-	
-}
-
-div.paginator.bottom a.inactive{
-	color: #FFF; /* same color as the surrounding text */
-  	text-decoration: none; /* to remove the underline */
-  	cursor: text;
-	
-}
-
 		
 
 </style>
@@ -140,7 +113,7 @@ div.paginator.bottom a.inactive{
 
 
 
-<div>		
+<div id="content">		
 		<ul id='thumb_gallery'>
 			
 <!-- Begin loop through photos -->
@@ -201,3 +174,40 @@ div.paginator.bottom a.inactive{
 			
 		</ul>
 </div>
+
+<div class='navigation'>
+<!--	<a id = "next" href="/photos/photo_gallery/<?php //echo($page+1) ?>?event_id=<?php //echo($event_id) ?>">Next</a> -->
+		<a id="next" href="/photos/photo_gallery/2?event_id=<?php echo($event_id) ?>">Mext</a>
+
+</div>
+
+<script type ="text/javascript" src="/js/scroll.js"></script>
+
+
+<script>
+$("a[rel^='prettyPhoto']").prettyPhoto();
+
+
+$('#content').infinitescroll({
+
+	// callback		: function () { console.log('using opts.callback'); },
+	navSelector  	: "a#next:last",
+	nextSelector 	: "a#next:last",
+	itemSelector 	: "#content ul",
+	dataType	 	: 'html',
+	// behavior		: 'twitter',
+	// appendCallback	: false, // USE FOR PREPENDING
+	// pathParse     	: function( pathStr, nextPage ){ return pathStr.replace('2', nextPage ); }
+}, function(newElements){
+
+	//USE FOR PREPENDING
+	// $(newElements).css('background-color','#ffef00');
+	// $(this).prepend(newElements);
+	//
+	//END OF PREPENDING
+	
+	window.console && console.log('context: ',this);
+	window.console && console.log('returned: ', newElements);
+	
+});
+</script>

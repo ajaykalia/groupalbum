@@ -11,7 +11,7 @@
 
 ?>
 
-<script type="text/javascript" src="/js/gallery.js"></script>
+<script type="text/javascript" src="/js/gallery_test.js"></script>
 
 
 <style>
@@ -19,6 +19,8 @@ div#imageList {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	border-color: #000;
+
+
 }
 
 div#add_album_border {

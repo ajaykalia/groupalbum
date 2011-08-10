@@ -7,7 +7,7 @@ $(document).ready(function () {
 	var event_id = document.getElementById('form_event_id').value;
 	$('#imageList').load("/photos/photo_gallery/1?event_id="+event_id);
 	$('#add_album_box').load('/events/add_album_box?event_id='+event_id);
-			
+				
 	$('a.ShowBox').click(function () {
 		//toggle add album box
 		$("#add_button").toggle();

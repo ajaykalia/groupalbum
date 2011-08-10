@@ -27,21 +27,47 @@
 
      }
 
-     function photo_gallery () {        
+     /**
+     photo_gallery()
+     gets all photos for an event (event id contained in URL)
+     url: /photos/photo_gallery/[page]?event_id=X
+     **/
 
+     function photo_gallery ($page=null) {        		
 		
-		// get all photos from event
+		$limit = 20;
 		$event_id = $this->params['url']['event_id'];
-		$find_conditions = array('conditions' => array('Photo.event_id' => $event_id), 'order'=>'Photo.created DESC');
+		
+		// Set up pagination
+		if(!$page) {
+            $page = 1;
+			$page_offset=0;
+        }
+
+		$photo_count = $this->Photo->find('count', array('conditions' => array('Photo.event_id' => $event_id)));
+		
+		if ($photo_count > ($limit *($page-1))) {
+			$page_offset = $page-1;
+		} else { 
+			$this->redirect(array('controller' => 'photos', 'action' => 'album_end'));
+		}
+		
+		$offset = $page_offset*$limit;
+
+		// get all photos from event		
+		$find_conditions = array('conditions' => array('Photo.event_id' => $event_id), 'order'=>'Photo.created DESC', 'limit'=>$limit, 'offset'=>$offset);
 		$photos = $this->Photo->find('all', $find_conditions);
 
-        // save the attendees in a variable for the view
-		
+        // save the photos in a variable for the view
 		$this->set('photos', $photos);
+		$this->set('event_id', $event_id);
+		$this->set('page', $page);
 		
 		// get facebook login URL if user is not logged in		
 		require $_SERVER['DOCUMENT_ROOT'].'files/config.php';
-		
+	
+	
+	
 		$session = $facebook->getSession();
 		
 		if($session) {
@@ -54,14 +80,22 @@
 			$loginUrl = $facebook->getLoginUrl();
 			$this->set('loginUrl', $loginUrl);	
 		}
+ 
 
-
-		
-		 
 
      }
 
-	
+     /**
+     album_end()
+     blank page to end pagination calls from infinite scroll
+     url: /photos/view/album_end
+     **/    
+
+    function album_end($id=null) {
+		$this->layout = null;
+
+	}
+
 
      
      /**
@@ -170,7 +204,7 @@
 
 	/** 
 	ajax_get_album_photos()
-	An AJAX call to pull up album photos whenever a set is selected from the Gallery dropdown
+	An AJAX call to pull up Facebook album photos whenever a set is selected from the Gallery dropdown
 	**/
 	
 	function ajax_get_album_photos () {
@@ -220,6 +254,7 @@
 		
 		
 		}
+		
 	
 
 }

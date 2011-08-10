@@ -248,6 +248,70 @@
 		
 		
 	}
+	
+	function index1() {
+		$this->layout=null;
+	}
+	
+	
+	function moshi($id=null) {
+
+			$this->set('page', $id);
+		$this->layout=null;
+		
+		
+	}
+	
+	function gallery_test($slug = null) {
+		require $_SERVER['DOCUMENT_ROOT'].'files/config.php';
+
+		$session = $facebook->getSession();
+		$me = null;
+		$albums = null;
+		$loginUrl = null;
+		$logoutUrl = null;
+
+		if ($session) {
+			try {
+				$me = $facebook->api('me');
+				$albums = $facebook->api('me/albums');
+		  	} catch (FacebookApiException $e) {
+		    	error_log($e);
+		  	}
+		}
+
+		if ($me) {
+		  $logoutUrl = $facebook->getLogoutUrl();
+		} else {
+		  $loginUrl = $facebook->getLoginUrl();
+		}
+
+		$this->set('session', $session);
+		$this->set('me', $me);
+		$this->set('albums', $albums);
+		$this->set('loginUrl', $loginUrl);
+		$this->set('logoutUrl', $logoutUrl);
+
+		$this->Event->recursive = 2;	
+
+		if(!$slug) {
+            $this->Session->setFlash('Invalid id for Event(noslug)');
+            $this->redirect(array('action'=>'index'));
+        }
+
+        $event = $this->Event->findBySlug($slug);
+
+		if(!empty($event)) {
+            $this->set('event', $event);
+        } else {
+            $this->Session->setFlash('Invalid id for Event(noevent)');
+            $this->redirect(array('action'=>'index'));
+        }  
+
+    }
+   
+	
+	
 
 }
  
