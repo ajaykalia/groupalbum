@@ -35,7 +35,7 @@
 
      function photo_gallery ($page=null) {        		
 		
-		$limit = 20;
+		$limit = 30;
 		$event_id = $this->params['url']['event_id'];
 		
 		// Set up pagination

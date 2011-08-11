@@ -22,6 +22,9 @@
 
 ?>
 
+<script>
+$("a[rel^='prettyPhoto']").prettyPhoto();
+</script>
 
 <style>
 
@@ -32,7 +35,7 @@ ul#thumb_gallery {
 
 
 ul#thumb_gallery a{
-		
+		background: #000;
 		float: left;
 		width:92px;
 		height:92px;
@@ -41,12 +44,12 @@ ul#thumb_gallery a{
 		position:relative;
 		z-index:1;
 		vertical-align:top;
-		border-color: #000;
-		border-style: solid;
+		border-color: #FFF;
+		border-style: double;
 		border-width: 2px;
-		-moz-border-radius: 5px; /*--CSS3 Rounded Corners--*/
-		-khtml-border-radius: 5px; /*--CSS3 Rounded Corners--*/
-		-webkit-border-radius: 5px; /*--CSS3 Rounded Corners--*/	
+	/*	-moz-border-radius: 5px; /*--CSS3 Rounded Corners--*/
+	/*	-khtml-border-radius: 5px; /*--CSS3 Rounded Corners--*/
+	/*	-webkit-border-radius: 5px; /*--CSS3 Rounded Corners--*/	
 		margin-bottom: 10px;
 		margin-right:0px;
 		filter: alpha(opacity=75);
@@ -65,7 +68,6 @@ ul#thumb_gallery a img{
 ul#thumb_gallery li p{
 		display: inline-block;
 		
-
 		float: left;
 		width:92px;
 		height:92px;
@@ -73,11 +75,11 @@ ul#thumb_gallery li p{
 		position:relative;
 		z-index:1;
 		border-color: #999;
-		border-style: solid;
+		border-style: double;
 		border-width: 2px;
-		-moz-border-radius: 5px; /*--CSS3 Rounded Corners--*/
-		-khtml-border-radius: 5px; /*--CSS3 Rounded Corners--*/
-		-webkit-border-radius: 5px; /*--CSS3 Rounded Corners--*/	
+	/*	-moz-border-radius: 5px; /*--CSS3 Rounded Corners--*/
+	/*	-khtml-border-radius: 5px; /*--CSS3 Rounded Corners--*/
+	/*	-webkit-border-radius: 5px; /*--CSS3 Rounded Corners--*/	
 		margin-bottom: 10px;
 		margin-right:0px;
 }
@@ -89,11 +91,11 @@ ul#thumb_gallery li p.in_box_text{
 ul#thumb_gallery a:hover{
 
 	border-color: #000;
-	border-style: solid;
+	border-style: double;
 	border-width: 2px;
-	-moz-border-radius: 5px; /*--CSS3 Rounded Corners--*/
-	-khtml-border-radius: 5px; /*--CSS3 Rounded Corners--*/
-	-webkit-border-radius: 5px; /*--CSS3 Rounded Corners--*/	
+/*	-moz-border-radius: 5px; /*--CSS3 Rounded Corners--*/
+/*	-khtml-border-radius: 5px; /*--CSS3 Rounded Corners--*/
+/*	-webkit-border-radius: 5px; /*--CSS3 Rounded Corners--*/	
 	margin-bottom: 10px;
 	
 	filter: alpha(opacity=100);
@@ -107,6 +109,9 @@ ul#thumb_gallery li{
 	display: inline-block;
 }
 		
+#infscr-loading {
+	text-align:center;
+}
 
 </style>
 
@@ -175,9 +180,8 @@ ul#thumb_gallery li{
 		</ul>
 </div>
 
-<div class='navigation'>
-<!--	<a id = "next" href="/photos/photo_gallery/<?php //echo($page+1) ?>?event_id=<?php //echo($event_id) ?>">Next</a> -->
-		<a id="next" href="/photos/photo_gallery/2?event_id=<?php echo($event_id) ?>">Mext</a>
+<div class='infinite_navigation'>
+		<a id="next" href="/photos/photo_gallery/2?event_id=<?php echo($event_id) ?>">Next</a>
 
 </div>
 

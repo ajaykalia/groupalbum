@@ -23,7 +23,7 @@
 	$.infinitescroll.defaults = {
 		loading: {
 			finished: undefined,
-			finishedMsg: "<em>Congratulations, you've reached the end of the internet.</em>",
+			finishedMsg:null, //"<em>Congratulations, you've reached the end of the internet.</em>",
 			img: "/img/loading_bar.gif",
 			msg: null,
 			msgText: "<em>Loading more pictures...</em>",

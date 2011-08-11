@@ -17,16 +17,16 @@
 <style>
 div#imageList {
 	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-bottom: 50px;
 	border-color: #000;
 }
 
-div#add_album_border {
+/*div#add_album_border {
 	border-style:solid;
 	border-width:1px;
 	border-color: #000;
 	height: 340px;
-}
+} */
 
 div.button_border {
 	border-style:solid;
@@ -47,23 +47,38 @@ div.gallery_border.bottom {
 	margin-top:60px;
 }
 
+div#left_pane {
+	margin-top:20px;
+}
 
 </style>	
 
 <!-- left nav -->
 <div class="clear"></div>
-<div id='left_nav' class='grid_3 alpha'>
+<div id='left_pane' class='grid_3 alpha'>
 
-test
-<!-- add album button -->
-<div id = "add_button">	
-   <div class="button_border"><img src="/img/expand.png" class="ShowBox"><a class="ShowBox" target="#"><u>Add photos</u></a></div>
+
+<!-- left hand links -->
+<div class="left_pane_links">	
+   <div class="button_border"><a id="gallery_link">Event Gallery</a></div>
 </div>
-<div id = "cancel_button">	
-   <div class='button_border'><img src="/img/collapse.png" class="ShowBox"><a class="ShowBox" target="#"><u>Cancel</u></a></div>
+<div class="left_pane_links">	
+   <div class="button_border"><a id="add_link">Add album</a></div>
 </div>
-<div class"clear"></div>
+
+
 <!-- end add album button -->
+<!-- start add album cradle -->
+
+
+		<!-- Facebook status or login -->
+		<div class ='fb_login_button' style="visibility:<?php if($me) {echo("hidden");} else {echo("visible");} ?>;">
+			Start by connecting your Facebook account:                                 	
+			<fb:login-button perms="publish_stream, user_photos"></fb:login-button>
+		</div>
+
+		<!-- end Facebook status or login -->
+
 
 </div>
 <!-- end left nav -->
@@ -98,34 +113,12 @@ test
 <!-- end Facebook login button to view locked photos -->
 
 <!-- image gallery -->	
-<div id="imageList" class='grid_13'></div>
+<div id="gallery_content" class='grid_13'></div>
 <!-- end image gallery -->	
 
 <?php echo $form->input('form_event_id',
    			array('label'=>'form_event_id', 'type'=>'hidden', 'value'=>$event['Event']['id'])); ?>
 
-<!-- start add album cradle -->
-<div id= "add_album_cradle" class = "grid_10 prefix_3">
-	<div id = "add_album_border">
-
-		<!-- Facebook status or login -->
-		<div class ='fb_login_button' style="visibility:<?php if($me) {echo("hidden");} else {echo("visible");} ?>;">
-			Start by connecting your Facebook account:                                 	
-			<fb:login-button perms="publish_stream, user_photos"></fb:login-button>
-		</div>
-
-		<!-- end Facebook status or login -->
-
-
-		<!-- add album box (loads add_album_box.ctp) -->
-		<div class="clear"></div>
-		<div id = "add_album_box"></div>
-		<!-- end add album box -->
-	</div>
-
-<!-- end album cradle -->
-
-</div>
 <!-- end content page -->
 
 </div>

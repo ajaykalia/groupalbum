@@ -6,7 +6,7 @@
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <!-- Include external files and scripts here (See HTML helper for more info.) -->
 <?php echo $scripts_for_layout ?>
-<link rel="stylesheet" href="/css/reset.css" />
+<link rel="stylesheet" href="/css/normalize.css" />
 <link rel="stylesheet" href="/css/text.css" /> 
 <link rel="stylesheet" href="/css/960_16_col.css" />
 <link rel="stylesheet" href="/css/header_footer_layout.css" />
@@ -28,7 +28,7 @@ window.fbAsyncInit = function() {
 		$('#form_event_id').ready(function() { 
 			var event_id = document.getElementById('form_event_id').value;
 		//	$('#imageList').load("/photos/photo_gallery?event_id="+event_id);
-			$('#add_album_box').load('/events/add_album_box?event_id='+event_id);
+		//	$('#add_album_box').load('/events/add_album_box?event_id='+event_id);
 			$('.fb_login_button').css('visibility', 'hidden');
 			$('#fb_login_status').css('visibility', 'visible');
 		});
@@ -44,7 +44,7 @@ window.fbAsyncInit = function() {
 		$('#form_event_id').ready(function() { 
 			var event_id = document.getElementById('form_event_id').value;
 		//	$('#imageList').load("/photos/photo_gallery?event_id="+event_id);
-			$('#add_album_box').load('/events/add_album_box?event_id='+event_id);
+		//	$('#add_album_box').load('/events/add_album_box?event_id='+event_id);
 			$('.fb_login_button').css('visibility', 'visible');
 			$('#fb_login_status').css('visibility', 'hidden');
 		});
