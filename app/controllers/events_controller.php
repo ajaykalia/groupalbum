@@ -105,6 +105,7 @@
 	//	 null layout for AJAX
 		$this->layout = null;
 
+
 		$data_to_save = array();
 		
 		$data_to_save['Attendee']['name'] = $this->data['Event']['attendee_name'];
@@ -133,7 +134,7 @@
 		
 		
 		// curl photos from album
-		$fb_album_id = $this->data["Event"]["external_album_id"];
+		$fb_album_id = $this->data["external_id"];
 		$fb_session_token = $this->data["Event"]['fb_session_token'];
 
 		$ch = curl_init();
@@ -169,7 +170,7 @@
 				$photo_to_save['event_id'] = $this->data['Event']['event_id'];
 				$photo_to_save['source_url'] = $photo['source'];
 				$photo_to_save['thumb_url'] = $photo['picture'];
-				$photo_to_save['external_album_id'] = $this->data['Event']['external_album_id'];
+				$photo_to_save['external_album_id'] = $this->data['external_id'];
 				$photo_to_save['external_photo_id'] = $photo['id'];
 				$photo_to_save['external_photo_link'] = $photo['link'];
 				$photo_to_save['privacy'] = $this->data['Event']['privacy'];
@@ -194,7 +195,10 @@
 		} else {
 			echo("no new photos");
 		}
+	
+	
 	}    
+	
 	
 	function event_attendees () {
 	//	 null layout for AJAX
@@ -249,18 +253,6 @@
 		
 	}
 	
-	function index1() {
-		$this->layout=null;
-	}
-	
-	
-	function moshi($id=null) {
-
-			$this->set('page', $id);
-		$this->layout=null;
-		
-		
-	}
 	
 	function gallery_test($slug = null) {
 		require $_SERVER['DOCUMENT_ROOT'].'files/config.php';

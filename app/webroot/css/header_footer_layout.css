@@ -1,14 +1,19 @@
+body{
+	font-family:"Verdana", "Geneva", sans-serif;  */
+/*	font-family: "myriad-pro-1","myriad-pro-2", "Lucida Grande", Sans-Serif; */
+	
+}
+
 #header {
 background: #000;
 font:  #FFF;
 margin-left: 0px;
-height:45px;
+height:50px;
 box-shadow:0 3px 4px rgba(0,0,0,.5);
 -moz-box-shadow:0 3px 4px rgba(0,0,0,.5);
 -webkit-box-shadow:0 3px 4px rgba(0,0,0,.5);
 }
 #header img{
-	height:35px;
 	margin-left: 5px;
 	margin-top: 5px;
 }

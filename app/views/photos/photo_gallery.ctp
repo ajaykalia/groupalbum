@@ -23,14 +23,25 @@
 ?>
 
 <script>
-$("a[rel^='prettyPhoto']").prettyPhoto();
+$(document).ready(function () {
+	$('a#gallery_link').text('Event Gallery');	
+	$("a[rel^='prettyPhoto']").prettyPhoto();
+	
+});
+
+
 </script>
 
 <style>
 
+ul#thumb_gallery li {
+/*	border-style: solid; */
+}
+
 ul#thumb_gallery {
 	/*height:430px;*/
 	margin-bottom:0px;
+	padding-left:0px;
 }
 
 
@@ -42,11 +53,8 @@ ul#thumb_gallery a{
 		line-height:100px;
 		overflow:hidden;
 		position:relative;
-		z-index:1;
 		vertical-align:top;
-		border-color: #FFF;
-		border-style: double;
-		border-width: 2px;
+		border: double #CCC;
 	/*	-moz-border-radius: 5px; /*--CSS3 Rounded Corners--*/
 	/*	-khtml-border-radius: 5px; /*--CSS3 Rounded Corners--*/
 	/*	-webkit-border-radius: 5px; /*--CSS3 Rounded Corners--*/	
@@ -74,9 +82,8 @@ ul#thumb_gallery li p{
 		overflow:visible;
 		position:relative;
 		z-index:1;
-		border-color: #999;
+		border-color: #CCC;
 		border-style: double;
-		border-width: 2px;
 	/*	-moz-border-radius: 5px; /*--CSS3 Rounded Corners--*/
 	/*	-khtml-border-radius: 5px; /*--CSS3 Rounded Corners--*/
 	/*	-webkit-border-radius: 5px; /*--CSS3 Rounded Corners--*/	
@@ -92,7 +99,6 @@ ul#thumb_gallery a:hover{
 
 	border-color: #000;
 	border-style: double;
-	border-width: 2px;
 /*	-moz-border-radius: 5px; /*--CSS3 Rounded Corners--*/
 /*	-khtml-border-radius: 5px; /*--CSS3 Rounded Corners--*/
 /*	-webkit-border-radius: 5px; /*--CSS3 Rounded Corners--*/	
@@ -108,7 +114,13 @@ ul#thumb_gallery a:hover{
 ul#thumb_gallery li{
 	display: inline-block;
 }
-		
+	
+ul#thumb_gallery p.inner_thumb{
+	border-color: #000;
+	border-style: double;
+	border-width: 1px;	
+}
+
 #infscr-loading {
 	text-align:center;
 }
@@ -189,7 +201,6 @@ ul#thumb_gallery li{
 
 
 <script>
-$("a[rel^='prettyPhoto']").prettyPhoto();
 
 
 $('#content').infinitescroll({
@@ -214,4 +225,5 @@ $('#content').infinitescroll({
 	window.console && console.log('returned: ', newElements);
 	
 });
+
 </script>

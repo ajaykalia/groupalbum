@@ -11,6 +11,8 @@
 	
 */
 
+// Added $("a[rel^='prettyPhoto']").prettyPhoto(); to loading.finished.actions
+
 (function (window, $, undefined) {
 
 	$.infinitescroll = function infscr(options, callback, element) {
@@ -26,7 +28,7 @@
 			finishedMsg:null, //"<em>Congratulations, you've reached the end of the internet.</em>",
 			img: "/img/loading_bar.gif",
 			msg: null,
-			msgText: "<em>Loading more pictures...</em>",
+			msgText: "<em>Checking for additional pictures...</em>",
 			selector: null,
 			speed: 'fast',
 			start: undefined
@@ -48,11 +50,11 @@
 		contentSelector: null, // rename to pageFragment
 		extraScrollPx: 150,
 		itemSelector: "div.post",
-		animate: false,
+		animate: true,
 		pathParse: undefined,
 		dataType: 'html',
 		appendCallback: true,
-		bufferPx: 40,
+		bufferPx: 140,
 		errorCallback: function () { },
 		infid: 0, //Instance ID
 		pixelsFromNavToBottom: undefined,
@@ -148,6 +150,8 @@
 			// determine loading.finished actions
 			opts.loading.finished = opts.loading.finished || function() {
 				opts.loading.msg.fadeOut('normal');
+				$("a[rel^='prettyPhoto']").prettyPhoto();
+				
 			};
 
             // callback loading

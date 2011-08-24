@@ -21,18 +21,8 @@ div#imageList {
 	border-color: #000;
 }
 
-/*div#add_album_border {
-	border-style:solid;
-	border-width:1px;
-	border-color: #000;
-	height: 340px;
-} */
-
 div.button_border {
-	border-style:solid;
-	border-width:1px;
-	border-color: #000;
-	text-align:center;
+	text-align:left;
 	padding-top: 0px;
 	padding-bottom: 5px;
 }
@@ -48,10 +38,62 @@ div.gallery_border.bottom {
 }
 
 div#left_pane {
-	margin-top:20px;
+	padding-top:20px;
+	height: 100%;
+	z-index: -50;
+	margin-right: 0px;
 }
 
-</style>	
+div#right_pane {
+	background: #FFF;
+	margin-top: 5px;
+	border-left: #CCC 1px solid;
+	padding-left: 10px;
+}
+
+div.omega {
+	background: #FFF;
+}
+
+.left_pane_links {
+	cursor:pointer;
+}
+
+a.people_link {
+	color: #3366FF;
+	text-decoration: none;
+}
+
+div#AttendeeList p {
+	color: #666666;
+	margin: 0px;
+	font-size: 13px;
+}
+
+.stack_title {
+	margin-bottom:5px;
+	margin-left: 10px;
+	vertical-align: center;
+	margin-top: 0px;
+}
+
+.greybox {
+	background: #F0F0F0;
+	width: 100%;
+	border-top: solid 1px #CCCCCC;
+	margin-top: 10px;
+}
+
+.button_border{
+	padding-left:10px;
+}
+
+.button_border:hover {
+	background:#CCC;
+}
+
+</style>
+	
 
 <!-- left nav -->
 <div class="clear"></div>
@@ -65,19 +107,9 @@ div#left_pane {
 <div class="left_pane_links">	
    <div class="button_border"><a id="add_link">Add album</a></div>
 </div>
-
-
-<!-- end add album button -->
-<!-- start add album cradle -->
-
-
-		<!-- Facebook status or login -->
-		<div class ='fb_login_button' style="visibility:<?php if($me) {echo("hidden");} else {echo("visible");} ?>;">
-			Start by connecting your Facebook account:                                 	
-			<fb:login-button perms="publish_stream, user_photos"></fb:login-button>
-		</div>
-
-		<!-- end Facebook status or login -->
+<div id='fb_login_status' class = "grid_13" style="visibility:<?php if($me) {echo("visible");} else {echo("hidden");} ?>;">
+	(Debug:&nbsp;<a href='<?php echo $logoutUrl; ?>'>Log out</a>&nbsp;)
+</div>
 
 
 </div>
@@ -85,25 +117,31 @@ div#left_pane {
 
 <!-- content pane -->
 <div id='right_pane' class='grid_13 omega'>
-
-	<h2>Photo Gallery: <?php echo $event['Event']['name']; ?> </h2>
+	<div class = 'greybox'>
+	<h2 class="stack_title"><?php echo $event['Event']['name']; ?> (January 1st-3rd, 2011)</h2>
+	</div>
 
 <!-- contributor list -->	
 <div id="AttendeeList" class='grid_13'>
-	<p>Contributors:&nbsp;
+	<p>
+		Stack started by <a class="people_link">Frank October</a> on January 1st, 2011<br />
+		Last addition by <a class="people_link">Susan November</a> on February 2nd, 2011<br />
+		Contributors:&nbsp;
 		<?php foreach($event['Attendee'] as $attendee) : ?>
-				<a href='http://facebook.com/profile.php?id=<?php echo($attendee['external_id']) ?>' target='#'><?php echo($attendee['name']) ?></a>				
+			<a class="people_link" href='http://facebook.com/profile.php?id=<?php echo($attendee['external_id']) ?>' target='#'><?php echo($attendee['name']) ?></a> (10)				
 		<?php endforeach ?>
 	</p>
 </div>
 <div class="clear"></div>
 
-<div id='fb_login_status' class = "grid_13" style="visibility:<?php if($me) {echo("visible");} else {echo("hidden");} ?>;">
-	(Debug:&nbsp;<a href='<?php echo $logoutUrl; ?>'>Log out</a>&nbsp;)
-</div>
 <div class="clear"></div>
 
 <!-- end contributor list -->
+
+
+<!-- image gallery -->	
+<div id="gallery_content"></div>
+<!-- end image gallery -->	
 
 <!-- Facebook login button to view locked photos -->
 <div class ='fb_login_button grid_13' style="visibility:<?php if($me) {echo("hidden");} else {echo("visible");} ?>;">
@@ -111,10 +149,6 @@ div#left_pane {
 	<fb:login-button perms="publish_stream, user_photos"></fb:login-button>
 </div>
 <!-- end Facebook login button to view locked photos -->
-
-<!-- image gallery -->	
-<div id="gallery_content" class='grid_13'></div>
-<!-- end image gallery -->	
 
 <?php echo $form->input('form_event_id',
    			array('label'=>'form_event_id', 'type'=>'hidden', 'value'=>$event['Event']['id'])); ?>

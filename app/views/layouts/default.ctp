@@ -64,7 +64,7 @@ window.fbAsyncInit = function() {
 <!-- If you'd like some sort of menu to 
 show up on all of your views, include it here -->
 <div id="header">
-	<img src="/img/Camera_2.png" />
+	<img src="/img/camera.png" />
 </div>
 
 <div id="main_content">

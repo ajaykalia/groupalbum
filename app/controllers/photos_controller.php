@@ -80,8 +80,6 @@
 			$loginUrl = $facebook->getLoginUrl();
 			$this->set('loginUrl', $loginUrl);	
 		}
- 
-
 
      }
 
@@ -128,6 +126,69 @@
     **/
 	function get_album() {
 		
+		
+	}
+	
+	/**
+    display_albums()
+    display a list all the user's facebook albums
+	url: /photo/get_album/
+    **/
+	function display_albums() {
+		$this->layout = null;
+		$eid = $this->params['url']['eid'];
+		$this->set('eid', $eid);
+		
+		
+		require $_SERVER['DOCUMENT_ROOT'].'files/config.php';
+		
+		$session = $facebook->getSession();
+		$me = null;
+		$albums = null;
+		$loginUrl = null;
+		$logoutUrl = null;
+		
+		if ($session) {
+			try {
+				$me = $facebook->api('me');
+				$albums = $facebook->api('me/albums');
+				$logoutUrl = $facebook->getLogoutUrl();
+				
+				$this->set('logoutUrl', $logoutUrl);
+		
+	   			$album_list = array();
+				$index =0;
+				
+				foreach($albums["data"] as $album) {
+					if(array_key_exists('count',$album) && ($album['count']>0)) {
+						$album_list[$index]["external_id"] = $album["id"];
+						$album_list[$index]["name"] = $album["name"];
+						$album_list[$index]["pic_count"] = $album["count"];
+			
+						$ch = curl_init();
+							$album_photo_curl = 'https://graph.facebook.com/'.$album["cover_photo"].'?access_token='.$session["access_token"];
+							curl_setopt($ch, CURLOPT_URL, $album_photo_curl); 
+							curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+							$album_photo_json = curl_exec ($ch);
+						curl_close ($ch);
+						$album_photo_json = json_decode($album_photo_json, true);
+
+						$album_photo = $album_photo_json['picture'];
+						$album_list[$index]['album_photo'] = $album_photo;
+						$index++;
+						}
+				}
+
+				$this->set('session', $session);
+				$this->set('me', $me);
+				$this->set('albums', $albums);
+				$this->set('album_list', $album_list);
+		
+		  	} catch (FacebookApiException $e) {
+		    	error_log($e);
+		  	}
+		}
+	
 		
 	}
 

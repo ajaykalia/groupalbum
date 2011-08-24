@@ -610,3 +610,7 @@
 2011-08-10 11:16:39 Warning: Warning (2): Invalid argument supplied for foreach() in [/mnt/hgfs/vm/groupAlbum/app/views/photos/photo_gallery.ctp, line 117]
 2011-08-10 11:16:59 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-5, 5' at line 1</span> in [/mnt/hgfs/vm/groupAlbum/cake/libs/model/datasources/dbo_source.php, line 684]
 2011-08-10 11:17:00 Warning: Warning (2): Invalid argument supplied for foreach() in [/mnt/hgfs/vm/groupAlbum/app/views/photos/photo_gallery.ctp, line 117]
+2011-08-15 10:55:07 Warning: Warning (2): Invalid argument supplied for foreach() in [/mnt/hgfs/vm/groupAlbum/app/controllers/photos_controller.php, line 167]
+2011-08-15 11:25:44 Warning: Warning (2): Invalid argument supplied for foreach() in [/mnt/hgfs/vm/groupAlbum/app/controllers/events_controller.php, line 158]
+2011-08-15 11:50:04 Warning: Warning (2): Invalid argument supplied for foreach() in [/mnt/hgfs/vm/groupAlbum/app/controllers/events_controller.php, line 159]
+2011-08-15 11:50:53 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1048: Column 'external_album_id' cannot be null</span> in [/mnt/hgfs/vm/groupAlbum/cake/libs/model/datasources/dbo_source.php, line 684]
