@@ -69,14 +69,10 @@ li.album_row {
 	}
 }
 
-li.album_row:hover {
+span.album_row_anchor:hover {
 	border:1px solid #000;
 }
 
-ul.album_rows img {
-	height:100px;
-	width: 100px;
-}
 
 p.album_name {
 	font-size:1em;
@@ -105,7 +101,29 @@ div.submit input:hover {
 	background: #FF0000;
 }
 
+a.album_image_anchor {
+		background: #000;
+		float: left;
+		width:100px;
+		height:100px;
+		line-height:100px;
+		overflow:hidden;
+		position:relative;
+		vertical-align:top;
+		border: double #CCC;
+	/*	-moz-border-radius: 5px; /*--CSS3 Rounded Corners--*/
+	/*	-khtml-border-radius: 5px; /*--CSS3 Rounded Corners--*/
+	/*	-webkit-border-radius: 5px; /*--CSS3 Rounded Corners--*/	
+		margin-bottom: 10px;
+		margin-right:0px;
+}
 
+.album_image_image {
+	float:left;
+	position:absolute;
+	top:0px;
+	left:0px;
+}
 
 
 </style>
@@ -160,7 +178,11 @@ div.submit input:hover {
 			<div class="clear"></div>
 			<li class="album_row">
 				<div class="grid_2 album_image">
-				<img src="<?php echo($album['album_photo']) ?>" style="height:100px; width:100px; border: double #CCC;"/>
+				
+					<a class = "album_image_anchor">
+						<img src="<?php echo($album['album_photo']) ?>" class="album_image_image"/>
+					</a>
+					
 				</div>
 				<div class="grid_7">
 					<p class="album_name"><?php echo($album['name']) ?></p>

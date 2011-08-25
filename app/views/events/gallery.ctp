@@ -42,6 +42,8 @@ div#left_pane {
 	height: 100%;
 	z-index: -50;
 	margin-right: 0px;
+	background: #EEE;
+	margin-top:5px;
 }
 
 div#right_pane {

@@ -1613,3 +1613,8 @@
 2011-08-24 00:54:42 Notice: Notice (8): Undefined variable: me in [/mnt/hgfs/vm/groupAlbum/app/views/photos/display_albums.ctp, line 119]
 2011-08-24 00:59:44 Notice: Notice (8): Undefined index:  eid in [/mnt/hgfs/vm/groupAlbum/app/controllers/photos_controller.php, line 141]
 2011-08-24 01:00:19 Notice: Notice (8): Undefined index:  eid in [/mnt/hgfs/vm/groupAlbum/app/controllers/photos_controller.php, line 141]
+2011-08-24 17:02:25 Notice: Notice (8): Undefined variable: me in [/mnt/hgfs/vm/groupAlbum/app/views/photos/display_albums.ctp, line 137]
+2011-08-24 17:02:30 Notice: Notice (8): Undefined variable: me in [/mnt/hgfs/vm/groupAlbum/app/views/photos/display_albums.ctp, line 137]
+2011-08-24 17:02:32 Notice: Notice (8): Undefined variable: me in [/mnt/hgfs/vm/groupAlbum/app/views/photos/display_albums.ctp, line 137]
+2011-08-24 17:03:07 Notice: Notice (8): Undefined variable: me in [/mnt/hgfs/vm/groupAlbum/app/views/photos/display_albums.ctp, line 137]
+2011-08-24 17:06:37 Notice: Notice (8): Undefined variable: me in [/mnt/hgfs/vm/groupAlbum/app/views/photos/display_albums.ctp, line 137]
